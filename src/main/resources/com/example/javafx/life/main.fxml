@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.javafx.life.Controller" VBox.vgrow="ALWAYS">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <left>
+        <GridPane fx:id="gameGrid" alignment="CENTER_LEFT"/>
+    </left>
+
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <padding>
+                <Insets left="20.0" right="20.0"/>
+            </padding>
+            <Label fx:id="infoLabel" wrapText="true" prefWidth="250" prefHeight="300" textAlignment="CENTER"/>
+            <Label text="Underpopulation Threshold"/>
+            <Slider fx:id="minThresholdSlider" prefWidth="250" max="8" value="2" showTickLabels="true" snapToTicks="true"
+                    showTickMarks="true" majorTickUnit="1" minorTickCount="0" blockIncrement="1"/>
+            <Label text="Overpopulation Threshold"/>
+            <Slider fx:id="maxThresholdSlider" prefWidth="250" max="8" value="3" showTickLabels="true" snapToTicks="true"
+                    showTickMarks="true" majorTickUnit="1" minorTickCount="0" blockIncrement="1"/>
+            <Label text="Reproduction Threshold"/>
+            <Slider fx:id="birthThresholdSlider" prefWidth="250" max="8" value="3" showTickLabels="true" snapToTicks="true"
+                    showTickMarks="true" majorTickUnit="1" minorTickCount="0" blockIncrement="1" />
+            <Label text="Simulation Speed" textAlignment="CENTER"/>
+            <Slider fx:id="speedSlider" prefWidth="250" max="20" value="1" snapToTicks="true" showTickLabels="true"
+                    showTickMarks="true" majorTickUnit="5" minorTickCount="0" blockIncrement="1"/>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <Button onMouseClicked="#selectPattern" text="Acorn" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Butterfly" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Diehard" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Gosper glider gun" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Simkin glider gun" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="LWSS" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="MWSS" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="HWSS" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Pulsar" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Penta-decathlon" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="R-pentomino" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Switch engine 1" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Switch engine 2" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Switch engine 3" focusTraversable="false"/>
+            <Button onMouseClicked="#randomize" text="Random" focusTraversable="false"/>
+            <Button fx:id="invertHorizButton" onMouseClicked="#toggleFlipHorizontal" text="Invert Horizontally: Off" focusTraversable="false"/>
+            <Button fx:id="invertVertButton" onMouseClicked="#toggleFlipVertical" text="Invert Vertically: Off" focusTraversable="false"/>
+        </VBox>
+    </right>
+
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20.0"/>
+            </padding>
+            <Button fx:id="colorScheme" onMouseClicked="#toggleColorScheme" text="Color Scheme: Mono" focusTraversable="false"/>
+            <Button fx:id="WrapEdges" onMouseClicked="#toggleBoundaryMode" text="Boundary Mode: Static" focusTraversable="false"/>
+            <Button onMouseClicked="#gridSizeS" text="Small" focusTraversable="false"/>
+            <Button onMouseClicked="#gridSizeM" text="Medium" focusTraversable="false"/>
+            <Button onMouseClicked="#gridSizeX" text="Large" focusTraversable="false"/>
+            <Button onMouseClicked="#gridSizeXL" text="Extra Large" focusTraversable="false"/>
+            <Button fx:id="PlayPause" onMouseClicked="#togglePlayPause" text="Play" focusTraversable="false"/>
+            <Button onMouseClicked="#initialize" text="Reset" focusTraversable="false"/>
+            <Button onMouseClicked="#showCredits" text="Credits" focusTraversable="false"/>
+            <Button fx:id="Exit" onMouseClicked="#Exit" text="Exit" focusTraversable="false"/>
+        </HBox>
+    </bottom>
+</BorderPane>
