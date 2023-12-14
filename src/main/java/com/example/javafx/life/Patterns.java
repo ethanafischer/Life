@@ -146,4 +146,45 @@ public class Patterns {
             default -> null;
         };
     }
+
+    public static boolean[][] flipHorizontally(boolean[][] pattern) {
+        int height = pattern.length;
+        int width = pattern[0].length;
+        boolean[][] flipped = new boolean[height][width];
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                flipped[i][j] = pattern[i][width - 1 - j];
+            }
+        }
+        return flipped;
+    }
+
+    public static boolean[][] flipVertically(boolean[][] pattern) {
+        int height = pattern.length;
+        boolean[][] flipped = new boolean[height][];
+
+        for (int i = 0; i < height; i++) {
+            flipped[i] = pattern[height - 1 - i];
+        }
+        return flipped;
+    }
+
+    public static boolean[][] rotate90Deg(boolean[][] pattern) {
+        if (pattern == null || pattern.length == 0 || pattern[0].length == 0) {
+            return null;
+        }
+
+        int originalRows = pattern.length;
+        int originalCols = pattern[0].length;
+        boolean[][] rotatedPattern = new boolean[originalCols][originalRows];
+
+        for (int i = 0; i < originalRows; i++) {
+            for (int j = 0; j < originalCols; j++) {
+                rotatedPattern[j][originalRows - 1 - i] = pattern[i][j];
+            }
+        }
+
+        return rotatedPattern;
+    }
 }

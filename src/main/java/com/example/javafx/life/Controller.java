@@ -2,6 +2,7 @@ package com.example.javafx.life;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -9,10 +10,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,6 +33,9 @@ public class Controller {
     private boolean wrappingEdges = false;
     private boolean flipHoriz = false;
     private boolean flipVert = false;
+    private boolean rotate90 = false;
+    private boolean gridLinesOn = true;
+    private boolean isRectCell = true;
     private boolean[][] selectedPattern = null;
     private Color backgroundColor = Color.WHITE;
     private Color cellColor = Color.BLACK;
@@ -62,7 +67,7 @@ public class Controller {
     @FXML
     private GridPane gameGrid;
     @FXML
-    private Button PlayPause, WrapEdges, invertHorizButton, invertVertButton, colorScheme;
+    private Button PlayPause, WrapEdges, invertHorizButton, invertVertButton, colorScheme, gridLines, cellShape, rotate90Button;
     @FXML
     private Slider speedSlider, minThresholdSlider, maxThresholdSlider, birthThresholdSlider;
     @FXML
@@ -76,6 +81,9 @@ public class Controller {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+        stage.setWidth(1082.0);
+        stage.setHeight(724.0);
+        stage.setResizable(false);
     }
 
     public void setScene(Scene scene) {
@@ -99,6 +107,7 @@ public class Controller {
         timer.stop();
         isGameRunning = false;
         PlayPause.setText("Play");
+        gameGrid.setBackground(new Background(new BackgroundFill(backgroundColor, CornerRadii.EMPTY, Insets.EMPTY)));
         String text = """
                 Welcome to Conway's Game of Life!
                 This is a zero-player cellular automation game designed by John Horton Conway in 1970.
@@ -156,15 +165,7 @@ public class Controller {
 
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                Rectangle cell = new Rectangle(cellSize, cellSize);
-                cell.setFill(grid[i][j] ? cellColor : backgroundColor);
-                cell.setStroke(grid[i][j] ? backgroundColor : cellColor);
-                cell.setStrokeWidth(0.2);
-
-                final int row = i;
-                final int col = j;
-                cell.setOnMouseClicked(event -> handleCellClick(row, col, cell));
-
+                Shape cell = getCell(grid, i, j);
                 GridPane.setRowIndex(cell, i);
                 GridPane.setColumnIndex(cell, j);
                 gameGrid.getChildren().add(cell);
@@ -172,7 +173,32 @@ public class Controller {
         }
     }
 
-    private void handleCellClick(int row, int col, Rectangle cell) {
+    private Shape getCell(boolean[][] grid, int i, int j) {
+        Shape cell;
+        if (!isRectCell) {
+            double radius = cellSize / 2;
+            cell = new Circle(radius);
+            ((Circle) cell).setCenterX(radius);
+            ((Circle) cell).setCenterY(radius);
+        } else {
+            cell = new Rectangle(cellSize, cellSize);
+        }
+
+        cell.setFill(grid[i][j] ? cellColor : backgroundColor);
+        if(gridLinesOn) {
+            cell.setStroke(grid[i][j] ? backgroundColor : cellColor);
+            cell.setStrokeWidth(0.2);
+        } else {
+            cell.setStrokeWidth(0);
+        }
+
+        final int row = i;
+        final int col = j;
+        cell.setOnMouseClicked(event -> handleCellClick(row, col, cell));
+        return cell;
+    }
+
+    private void handleCellClick(int row, int col, Shape cell) {
         if (selectedPattern != null) {
             game.placePattern(selectedPattern, row, col, flipHoriz, flipVert);
             selectedPattern = null;
@@ -183,10 +209,14 @@ public class Controller {
         }
     }
 
+
     public void selectPattern(MouseEvent event) {
         Button btn = (Button) event.getSource();
         String patternName = btn.getText();
         selectedPattern = Patterns.getPattern(patternName);
+        if (rotate90) {
+            selectedPattern = Patterns.rotate90Deg(selectedPattern);
+        }
     }
 
     public void randomize() {
@@ -209,7 +239,7 @@ public class Controller {
     }
 
     public void gridSizeX() {
-        cellSize = 5.0;
+        cellSize = 5.625;
         rows = 100;
         cols = 100;
         setupGame();
@@ -238,6 +268,19 @@ public class Controller {
         cellColor = (Color) colorSchemes[colorSchemeIndex][0];
         backgroundColor = (Color) colorSchemes[colorSchemeIndex][1];
         colorScheme.setText((String) colorSchemes[colorSchemeIndex][2]);
+        gameGrid.setBackground(new Background(new BackgroundFill(backgroundColor, CornerRadii.EMPTY, Insets.EMPTY)));
+        updateGrid();
+    }
+
+    public void toggleGridLines() {
+        gridLinesOn = !gridLinesOn;
+        gridLines.setText(gridLinesOn ? "Grid Lines: On" : "Grid Lines: Off");
+        updateGrid();
+    }
+
+    public void toggleCellShape() {
+        isRectCell = !isRectCell;
+        cellShape.setText(isRectCell ? "Cell Shape: Square" : "Cell Shape: Circle");
         updateGrid();
     }
 
@@ -255,6 +298,11 @@ public class Controller {
     public void toggleFlipVertical() {
         flipVert = !flipVert;
         invertVertButton.setText(flipVert ? "Invert Vertically: On" : "Invert Vertically: Off");
+    }
+
+    public void toggleRotate90Deg() {
+        rotate90 = !rotate90;
+        rotate90Button.setText(rotate90 ? "Rotate 90 deg: On" : "Rotate 90 deg: Off");
     }
 
     public void showCredits() {

@@ -103,10 +103,10 @@ public class GameOfLife {
         boolean[][] copyPattern = copyPattern(pattern);
 
         if (flipHoriz) {
-            copyPattern = flipHorizontally(copyPattern);
+            copyPattern = Patterns.flipHorizontally(copyPattern);
         }
         if (flipVert) {
-            copyPattern = flipVertically(copyPattern);
+            copyPattern = Patterns.flipVertically(copyPattern);
         }
 
         for (int i = 0; i < copyPattern.length; i++) {
@@ -124,28 +124,5 @@ public class GameOfLife {
             temp[i] = Arrays.copyOf(pattern[i], pattern[i].length);
         }
         return temp;
-    }
-
-    private boolean[][] flipHorizontally(boolean[][] pattern) {
-        int height = pattern.length;
-        int width = pattern[0].length;
-        boolean[][] flipped = new boolean[height][width];
-
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                flipped[i][j] = pattern[i][width - 1 - j];
-            }
-        }
-        return flipped;
-    }
-
-    private boolean[][] flipVertically(boolean[][] pattern) {
-        int height = pattern.length;
-        boolean[][] flipped = new boolean[height][];
-
-        for (int i = 0; i < height; i++) {
-            flipped[i] = pattern[height - 1 - i];
-        }
-        return flipped;
     }
 }

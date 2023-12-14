@@ -14,9 +14,11 @@ public class GameApp extends Application {
         controller.setStage(stage);
         controller.setScene(scene);
 
-        stage.setTitle("Conway's Game of Life");
+        stage.setTitle("Life");
         stage.setScene(scene);
         stage.show();
+        System.out.println(stage.getWidth());
+        System.out.println(stage.getHeight());
     }
     public static void main(String[] args) {
         launch(args);

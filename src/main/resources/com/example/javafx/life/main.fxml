@@ -10,20 +10,17 @@
 <?import javafx.scene.layout.BorderPane?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.javafx.life.Controller" VBox.vgrow="ALWAYS">
+            fx:controller="com.example.javafx.life.Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
     <left>
-        <GridPane fx:id="gameGrid" alignment="CENTER_LEFT"/>
+        <GridPane fx:id="gameGrid" alignment="CENTER"/>
     </left>
 
-    <center>
-        <VBox alignment="TOP_CENTER" spacing="10">
-            <padding>
-                <Insets left="20.0" right="20.0"/>
-            </padding>
+    <right>
+        <VBox alignment="CENTER" spacing="10">
             <Label fx:id="infoLabel" wrapText="true" prefWidth="250" prefHeight="300" textAlignment="CENTER"/>
             <Label text="Underpopulation Threshold"/>
             <Slider fx:id="minThresholdSlider" prefWidth="250" max="8" value="2" showTickLabels="true" snapToTicks="true"
@@ -38,20 +35,31 @@
             <Slider fx:id="speedSlider" prefWidth="250" max="20" value="1" snapToTicks="true" showTickLabels="true"
                     showTickMarks="true" majorTickUnit="5" minorTickCount="0" blockIncrement="1"/>
         </VBox>
-    </center>
+    </right>
 
-    <right>
-        <VBox alignment="TOP_CENTER" spacing="10">
+    <center>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets left="20.0" right="20.0"/>
+            </padding>
+            <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="Acorn" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Butterfly" focusTraversable="false"/>
+            </HBox>
+            <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="Diehard" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
+            </HBox>
             <Button onMouseClicked="#selectPattern" text="Gosper glider gun" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Simkin glider gun" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
+            <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="LWSS" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="MWSS" focusTraversable="false"/>
+            </HBox>
+            <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="HWSS" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Pulsar" focusTraversable="false"/>
+            </HBox>
             <Button onMouseClicked="#selectPattern" text="Penta-decathlon" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="R-pentomino" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Switch engine 1" focusTraversable="false"/>
@@ -60,8 +68,9 @@
             <Button onMouseClicked="#randomize" text="Random" focusTraversable="false"/>
             <Button fx:id="invertHorizButton" onMouseClicked="#toggleFlipHorizontal" text="Invert Horizontally: Off" focusTraversable="false"/>
             <Button fx:id="invertVertButton" onMouseClicked="#toggleFlipVertical" text="Invert Vertically: Off" focusTraversable="false"/>
+            <Button fx:id="rotate90Button" onMouseClicked="#toggleRotate90Deg" text="Rotate 90 deg: Off" focusTraversable="false"/>
         </VBox>
-    </right>
+    </center>
 
     <bottom>
         <HBox alignment="CENTER" spacing="10">
@@ -69,6 +78,8 @@
                 <Insets top="20.0"/>
             </padding>
             <Button fx:id="colorScheme" onMouseClicked="#toggleColorScheme" text="Color Scheme: Mono" focusTraversable="false"/>
+            <Button fx:id="gridLines" onMouseClicked="#toggleGridLines" text="Grid Lines: On" focusTraversable="false"/>
+            <Button fx:id="cellShape" onMouseClicked="#toggleCellShape" text="Cell Shape: Square" focusTraversable="false"/>
             <Button fx:id="WrapEdges" onMouseClicked="#toggleBoundaryMode" text="Boundary Mode: Static" focusTraversable="false"/>
             <Button onMouseClicked="#gridSizeS" text="Small" focusTraversable="false"/>
             <Button onMouseClicked="#gridSizeM" text="Medium" focusTraversable="false"/>
