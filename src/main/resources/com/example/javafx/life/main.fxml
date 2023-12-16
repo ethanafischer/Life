@@ -43,26 +43,26 @@
                 <Insets left="20.0" right="20.0"/>
             </padding>
             <HBox alignment="TOP_CENTER" spacing="10">
-            <Button onMouseClicked="#selectPattern" text="Acorn" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="Butterfly" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Acorn" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Butterfly" focusTraversable="false"/>
             </HBox>
             <HBox alignment="TOP_CENTER" spacing="10">
-            <Button onMouseClicked="#selectPattern" text="Diehard" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="Eater" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Diehard" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Eater" focusTraversable="false"/>
             </HBox>
             <HBox alignment="TOP_CENTER" spacing="10">
-            <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="AK94 gun" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="AK94 gun" focusTraversable="false"/>
             </HBox>
-            <Button onMouseClicked="#selectPattern" text="Gosper glider gun" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="Simkin glider gun" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Gosper glider gun" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Simkin glider gun" focusTraversable="false"/>
             <HBox alignment="TOP_CENTER" spacing="10">
-            <Button onMouseClicked="#selectPattern" text="LWSS" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="MWSS" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="LWSS" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="MWSS" focusTraversable="false"/>
             </HBox>
             <HBox alignment="TOP_CENTER" spacing="10">
-            <Button onMouseClicked="#selectPattern" text="HWSS" focusTraversable="false"/>
-            <Button onMouseClicked="#selectPattern" text="Pulsar" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="HWSS" focusTraversable="false"/>
+                <Button onMouseClicked="#selectPattern" text="Pulsar" focusTraversable="false"/>
             </HBox>
             <Button onMouseClicked="#selectPattern" text="Penta-decathlon" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="R-pentomino" focusTraversable="false"/>
