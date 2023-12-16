@@ -48,7 +48,11 @@
             </HBox>
             <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="Diehard" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Eater" focusTraversable="false"/>
+            </HBox>
+            <HBox alignment="TOP_CENTER" spacing="10">
             <Button onMouseClicked="#selectPattern" text="Glider" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="AK94 gun" focusTraversable="false"/>
             </HBox>
             <Button onMouseClicked="#selectPattern" text="Gosper glider gun" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Simkin glider gun" focusTraversable="false"/>
@@ -65,7 +69,8 @@
             <Button onMouseClicked="#selectPattern" text="Switch engine 1" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Switch engine 2" focusTraversable="false"/>
             <Button onMouseClicked="#selectPattern" text="Switch engine 3" focusTraversable="false"/>
-            <Button onMouseClicked="#randomize" text="Random" focusTraversable="false"/>
+            <Button onMouseClicked="#selectPattern" text="Switch engine 4" focusTraversable="false"/>
+            <Button onMouseClicked="#randomize" text="Randomize Grid" focusTraversable="false"/>
             <Button fx:id="invertHorizButton" onMouseClicked="#toggleFlipHorizontal" text="Invert Horizontally: Off" focusTraversable="false"/>
             <Button fx:id="invertVertButton" onMouseClicked="#toggleFlipVertical" text="Invert Vertically: Off" focusTraversable="false"/>
             <Button fx:id="rotate90Button" onMouseClicked="#toggleRotate90Deg" text="Rotate 90 deg: Off" focusTraversable="false"/>

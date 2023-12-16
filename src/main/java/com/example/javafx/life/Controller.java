@@ -44,7 +44,7 @@ public class Controller {
             {Color.WHITE, Color.BLACK, "Color Scheme: Invert"},
             {Color.rgb(228,239,240), Color.rgb(0,80,102), "Color Scheme: Cool"},
             {Color.rgb(248, 131, 121), Color.rgb(28,95,144), "Color Scheme: Coral"},
-            {Color.rgb(255,232,8), Color.rgb(255,90,0), "Color Scheme: Flame"},
+            {Color.rgb(255,90,0), Color.rgb(255,232,8), "Color Scheme: Flame"},
             {Color.rgb(90,139,93), Color.rgb(78,52,29), "Color Scheme: Earth"},
             {Color.rgb(222,255,117), Color.rgb(150,117,255), "Color Scheme: Lavender"},
             {Color.rgb(0,255,43), Color.rgb(0,0,0), "Color Scheme: Matrix"},
@@ -109,7 +109,7 @@ public class Controller {
         PlayPause.setText("Play");
         gameGrid.setBackground(new Background(new BackgroundFill(backgroundColor, CornerRadii.EMPTY, Insets.EMPTY)));
         String text = """
-                Welcome to Conway's Game of Life!
+                Welcome to Life!
                 This is a zero-player cellular automation game designed by John Horton Conway in 1970.
 
                 Rules:

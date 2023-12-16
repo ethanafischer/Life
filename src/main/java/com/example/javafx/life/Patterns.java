@@ -143,6 +143,45 @@ public class Patterns {
             case "Switch engine 3" -> new boolean[][]{
                     {o, o, o, o, o, o, o, o, x, o, o, o, o, o, x, x, x, o, o, o, x, x, x, x, x, x, o, o, o, o, o, o, o, x, o, o, o, o, o}
             };
+            case "Eater" -> new boolean[][]{
+                    {o, o, x, x},
+                    {o, x, o, x},
+                    {x, x, o, x},
+                    {x, x, o, o}
+            };
+            case "Switch engine 4" -> new boolean[][]{
+                    {x, o, x, o, x, x},
+                    {o, x, x, x, x, x},
+                    {x, o, x, x, o, x},
+                    {x, x, x, o, o, o}
+            };
+            case "AK94 gun" -> new boolean[][]{
+                    {x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, o, o, o, x, x, x, x, x, o, o, o, x, x, x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, x, o, x, x, o},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, x, o, x, x, o, o, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, x, x},
+                    {x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x},
+                    {x, x, x, x, x, o, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, x, o, o},
+                    {x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, o, x, x, o},
+                    {x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, o, o, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, o, o, x, o, o, x, x, x, x, x, x, x, x, x, o, x, o, x, x, x, x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x},
+                    {o, x, x, o, x, o, o, x, x, x, x, x, x, x, x, o, x, x, x, o, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x},
+                    {o, o, x, o, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x, o, x, x, x, x, x, x, x, x, x, x, o, o, o, x, x, x, x, x},
+                    {x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x},
+                    {x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, o, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, o, o, x, x, o, x, o, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {o, x, x, o, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, x, x, x, x, o, o, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+                    {x, x, x, x, x, x, x, x, x, x, x, x, x, o, o, x, x, x, x, x, x, x, o, x, x, x, x, x, x, x, x, x, x, x, x, x, x, x},
+            };
             default -> null;
         };
     }
